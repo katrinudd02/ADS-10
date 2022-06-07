@@ -4,7 +4,8 @@
 #include  <locale>
 #include  <cstdlib>
 #include  "tree.h"
+#include <vector>
 
 std::vector<char> getPerm(const Tree& tree, int n) {
-  // напишите реализацию
+  return tree.getPerm(n);
 }
