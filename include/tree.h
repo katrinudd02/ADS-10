@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-const class Tree {
+class Tree {
  public:
     struct Node {
         char value;
@@ -39,7 +39,7 @@ Tree::Tree(std::vector<char> c) {
     addNode(root, '*', c, root->minn, root->maxx);
 }
 
-Tree::Node* Tree::addNode(Node* r, char v, 
+Tree::Node* Tree::addNode(Node* r, char v,
     std::vector<char> c, int minn, int maxx) {
     std::vector<char> c2;
     Node* n = nullptr;
