@@ -19,7 +19,7 @@ class Tree {
 
  public:
     Tree();
-    Tree(std::vector<char>);
+    Tree(std::vector<char> c);
     ~Tree();
     std::vector<char> getPerm(int) const;
 };
@@ -98,7 +98,7 @@ void Tree::delTree(Node* root) {
 std::vector<char> Tree::getPerm(int N) const {
     std::vector<char> result;
     Node* r;
-    if (N >= root->minn && N <= root->maxx) {
+    if (N > root->minn && N <= root->maxx + 1) {
         r = root;
         while (r->children[0]->minn != -1) {
             for (int i = 0; i < r->children.size(); i++) {
