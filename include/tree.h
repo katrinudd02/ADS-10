@@ -14,7 +14,7 @@ const class Tree {
 
  private:
     Node* root;
-    Node* addNode(Node*, char, std::vector<char>,int,int);
+    Node* addNode(Node*, char, std::vector<char>, int, int);
     void delTree(Node*);
 
  public:
@@ -36,10 +36,11 @@ Tree::Tree(std::vector<char> c) {
     root->value = '*';
     root->minn = 0;
     root->maxx = fact(c.size()) - 1;
-    addNode(root,'*', c, root->minn, root->maxx);
+    addNode(root, '*', c, root->minn, root->maxx);
 }
 
-Tree::Node* Tree::addNode(Node* r, char v, std::vector<char> c, int minn, int maxx) {
+Tree::Node* Tree::addNode(Node* r, char v, 
+    std::vector<char> c, int minn, int maxx) {
     std::vector<char> c2;
     Node* n = nullptr;
     char value;
@@ -61,7 +62,7 @@ Tree::Node* Tree::addNode(Node* r, char v, std::vector<char> c, int minn, int ma
             _maxx = (maxx - minn + 1) / c.size() * (i+1) + minn - 1;
             r->children.push_back(addNode(n, value, c2, _minn, _maxx));
         }
-        r->value=v;
+        r->value = v;
         r->minn = minn;
         r->maxx = maxx;
         n = r;
@@ -94,14 +95,15 @@ void Tree::delTree(Node* root) {
     }
 }
 
-std::vector<char> Tree::getPerm(int N) const{
+std::vector<char> Tree::getPerm(int N) const {
     std::vector<char> result;
     Node* r;
     if (N >= root->minn && N <= root->maxx) {
         r = root;
-        while (r->children[0]->minn!=-1) {
+        while (r->children[0]->minn != -1) {
             for (int i = 0; i < r->children.size(); i++) {
-                if (N > r->children[i]->minn && N <= (r->children[i]->maxx + 1)) {
+                if (N > r->children[i]->minn &&
+                    N <= (r->children[i]->maxx + 1)) {
                     result.push_back(r->children[i]->value);
                     r = r->children[i];
                     break;
@@ -112,8 +114,7 @@ std::vector<char> Tree::getPerm(int N) const{
     }
     return result;
 }
-long double fact(int N)
-{
+long double fact(int N) {
     if (N < 0) {
         return 0;
     }
