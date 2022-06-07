@@ -19,7 +19,7 @@ class Tree {
 
  public:
     Tree();
-    Tree(std::vector<char> c);
+    explicit Tree(std::vector<char> c);
     ~Tree();
     std::vector<char> getPerm(int) const;
 };
